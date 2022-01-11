@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import * as actions from "actions";
 
-export default () => {
-  const [comment, setComment] = useState('');
+const CommentBox = () => {
+  const [comment, setComment] = useState("");
 
   const handleChange = (e) => {
     setComment(e.target.value);
@@ -10,7 +12,9 @@ export default () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setComment('');
+    // saveComment(comment);
+
+    setComment("");
   };
 
   return (
@@ -23,3 +27,5 @@ export default () => {
     </form>
   );
 };
+
+export default connect()(CommentBox);
