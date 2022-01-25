@@ -6,7 +6,7 @@ export default ({ dispatch }) =>
     // If it does, then wait for it to resolve
     // If it does not, then send the action on to
     // the next middleware
-    if (!action.payload || !action.payload.then) {
+    if (!action.payload?.then) {
       return next(action);
     }
 
