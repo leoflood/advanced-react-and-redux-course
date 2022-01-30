@@ -1,3 +1,10 @@
+# advanced-react-and-redux-course
+Following the Advanced React and Redux course
+
+Course: https://intive.udemy.com/course/react-redux-tutorial
+
+Server side: https://github.com/leoflood/advanced-react-and-redux-course-server
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
