@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import morgan from "morgan";
 import router from "./router.js";
 import mongoose from "mongoose";
+import cors from "cors";
 
 // DB setup
 mongoose
@@ -12,6 +13,7 @@ mongoose
 
 // App setup
 const app = express();
+app.use(cors());
 app.use(morgan("combined"));
 app.use(bodyParser.json({ type: "*/*" }));
 router(app);
