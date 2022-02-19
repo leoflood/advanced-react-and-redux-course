@@ -1,12 +1,17 @@
-import React from "react";
-import { reduxForm, Field } from "redux-form";
-import { compose } from "redux";
-import { connect } from "react-redux";
-import * as actions from "../../actions";
+import React from 'react';
+import { reduxForm, Field } from 'redux-form';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+import { useNavigate } from 'react-router-dom';
 
-const Signup = ({ handleSubmit, signup }) => {
+const Signup = ({ handleSubmit, signup, errorMessage }) => {
+  const navigate = useNavigate();
+
   const onSubmit = (formProps) => {
-    signup(formProps);
+    signup(formProps, () => {
+      navigate('/feature');
+    });
   };
 
   return (
@@ -26,12 +31,20 @@ const Signup = ({ handleSubmit, signup }) => {
         />
       </fieldset>
 
+      <div>{errorMessage}</div>
+
       <button>Sign Up!</button>
     </form>
   );
 };
 
+function mapStateToProps(state) {
+  return {
+    errorMessage: state.auth.errorMessage,
+  };
+}
+
 export default compose(
-  connect(null, actions),
-  reduxForm({ form: "signup" })
+  connect(mapStateToProps, actions),
+  reduxForm({ form: 'signup' })
 )(Signup);
