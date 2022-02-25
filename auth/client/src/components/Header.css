@@ -1,0 +1,8 @@
+div.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.header a {
+  margin: 0 10px;
+}
